@@ -4,8 +4,9 @@
   --color-primary: #F5F5DC;
   --color-text-dark: #1A1A1A;
   --color-accent: #FFFFFF;
-  --font-heading: 'DM Sans', sans-serif;
-  --font-body: 'Montserrat', sans-serif;
+  --font-heading: 'Hanken Grotesk', sans-serif;
+  --font-body: 'Hanken Grotesk', sans-serif;
+  --font-hanken: 'Hanken Grotesk', sans-serif;
 }
 
 @layer base {
@@ -16,7 +17,7 @@
   }
 
   body {
-    @apply bg-primary text-text-dark font-body antialiased;
+    @apply bg-primary text-text-dark font-hanken antialiased;
   }
 
   h1,
@@ -62,9 +63,9 @@
 }
 
 .dm-sans {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
 }
 
 .montserrat {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
 }

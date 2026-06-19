@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
@@ -9,47 +8,8 @@ const Footer = () => {
 
   return (
     <>
-      {/* Reservation CTA Section (Light Background) */}
-      <section className="w-full px-4 pt-10 pb-20 md:pb-28 bg-primary">
-        <div
-          className="w-full flex flex-col items-center text-center"
-          id="contact"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-3xl md:text-5xl font-bold font-heading tracking-tighter text-text-dark mb-8 leading-tight">
-              mau reservasi tempat?
-              <br />
-              hubungi kami
-            </h3>
-
-            {/* Standout Animated Button */}
-            <motion.a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-text-dark text-white rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105"
-              whileHover={{ rotate: [-2, 2, -2, 0], scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <FaWhatsapp
-                size={24}
-                className="group-hover:-scale-x-100 transition-transform duration-500"
-              />
-              Kontak Kami
-              {/* Ping Animation behind button to make it standout */}
-              <span className="absolute -inset-1 rounded-full bg-text-dark opacity-20 group-hover:animate-ping -z-10"></span>
-            </motion.a>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Dark Footer Section */}
-      <footer className="w-full bg-[#18181b] text-white pt-20 pb-8 px-8 md:px-16  -mt-12 md:-mt-16 z-20 relative">
+      <footer className="w-full bg-[#18181b] text-white pt-20 pb-8 px-8 md:px-16 z-20 relative">
         <div className="w-full flex flex-col lg:flex-row justify-between gap-12 lg:gap-0 mb-16">
           {/* Logo Watermark style */}
           <div className="md:w-1/3">

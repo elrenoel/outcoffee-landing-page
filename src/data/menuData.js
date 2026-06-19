@@ -1,6 +1,6 @@
-import americano from "../../assets/americano.jpg";
-import coffeeLatte from "../../assets/coffee-latte.jpg";
-import matchaLatte from "../../assets/iced-matcha-latte.jpg";
+import americano from "../assets/americano.jpg";
+import coffeeLatte from "../assets/coffee-latte.jpg";
+import matchaLatte from "../assets/iced-matcha-latte.jpg";
 
 export const categories = [
   { id: "americano-series", name: "Americano Series" },
@@ -18,26 +18,29 @@ export const menuItems = [
     categoryId: "americano-series",
     name: "Iced Americano",
     price: "23.000",
-    description: "An espresso shot mixed with a glass of water, delivering an ideal balance of character, aroma, and flavor.",
-    image: americano
+    description:
+      "An espresso shot mixed with a glass of water, delivering an ideal balance of character, aroma, and flavor.",
+    image: americano,
   },
   {
     id: 2,
     categoryId: "americano-series",
     name: "Hot Americano",
     price: "23.000",
-    description: "An espresso shot mixed with a glass of water, delivering an ideal balance of character, aroma, and flavor.",
-    image: americano
+    description:
+      "An espresso shot mixed with a glass of water, delivering an ideal balance of character, aroma, and flavor.",
+    image: americano,
   },
   {
     id: 3,
     categoryId: "americano-series",
     name: "Iced Manuka Americano",
     price: "29.000",
-    description: "Americano with Manuka honey which is perfect for an energy booster.",
-    image: americano
+    description:
+      "Americano with Manuka honey which is perfect for an energy booster.",
+    image: americano,
   },
-  
+
   // Coffee
   {
     id: 4,
@@ -45,7 +48,7 @@ export const menuItems = [
     name: "Coffee Caramel Latte",
     price: "32.000",
     description: "Smooth espresso with creamy milk and rich caramel syrup.",
-    image: coffeeLatte
+    image: coffeeLatte,
   },
   {
     id: 5,
@@ -53,15 +56,16 @@ export const menuItems = [
     name: "Iced Latte",
     price: "28.000",
     description: "Simple and elegant combination of espresso and cold milk.",
-    image: coffeeLatte
+    image: coffeeLatte,
   },
   {
     id: 6,
     categoryId: "coffee",
     name: "Cappuccino",
     price: "30.000",
-    description: "Classic coffee with balanced espresso, steamed milk, and foam.",
-    image: coffeeLatte
+    description:
+      "Classic coffee with balanced espresso, steamed milk, and foam.",
+    image: coffeeLatte,
   },
 
   // FOREveryone 1L
@@ -71,7 +75,7 @@ export const menuItems = [
     name: "Aren Latte 1L",
     price: "85.000",
     description: "Signature Aren Latte in a large 1 Liter size to share.",
-    image: coffeeLatte
+    image: coffeeLatte,
   },
   {
     id: 8,
@@ -79,7 +83,7 @@ export const menuItems = [
     name: "Americano 1L",
     price: "70.000",
     description: "Refreshing Iced Americano in 1 Liter size.",
-    image: americano
+    image: americano,
   },
 
   // Fore Signature
@@ -89,7 +93,7 @@ export const menuItems = [
     name: "Aren Latte",
     price: "32.000",
     description: "Our signature coffee with palm sugar (aren) and creamy milk.",
-    image: coffeeLatte
+    image: coffeeLatte,
   },
   {
     id: 10,
@@ -97,7 +101,7 @@ export const menuItems = [
     name: "Pandan Latte",
     price: "35.000",
     description: "Unique blend of espresso, milk, and fragrant pandan syrup.",
-    image: coffeeLatte
+    image: coffeeLatte,
   },
 
   // Non Coffee
@@ -107,7 +111,7 @@ export const menuItems = [
     name: "Iced Matcha Latte",
     price: "33.000",
     description: "Premium Japanese matcha whisked with cold milk.",
-    image: matchaLatte
+    image: matchaLatte,
   },
   {
     id: 12,
@@ -115,7 +119,7 @@ export const menuItems = [
     name: "Chocolate",
     price: "30.000",
     description: "Smooth and rich chocolate experience.",
-    image: matchaLatte // Reusing image as placeholder
+    image: matchaLatte, // Reusing image as placeholder
   },
 
   // Refresher
@@ -125,7 +129,7 @@ export const menuItems = [
     name: "Berry Manuka",
     price: "31.000",
     description: "Refreshing berry drink with a hint of honey.",
-    image: matchaLatte
+    image: matchaLatte,
   },
   {
     id: 14,
@@ -133,6 +137,6 @@ export const menuItems = [
     name: "Triple Peach Americano",
     price: "29.000",
     description: "Refreshing blend of peach and americano.",
-    image: americano
-  }
+    image: americano,
+  },
 ];

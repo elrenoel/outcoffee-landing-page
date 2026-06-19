@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { categories, menuItems } from "../data/menuData";
@@ -11,11 +10,13 @@ const MenuPage = () => {
   const sectionRefs = useRef({});
 
   // Initialize refs for each category section
-  categories.forEach((cat) => {
-    if (!sectionRefs.current[cat.id]) {
-      sectionRefs.current[cat.id] = null;
-    }
-  });
+  useEffect(() => {
+    categories.forEach((cat) => {
+      if (!sectionRefs.current[cat.id]) {
+        sectionRefs.current[cat.id] = null;
+      }
+    });
+  }, []);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -43,7 +44,10 @@ const MenuPage = () => {
           const absoluteTop = top + window.pageYOffset;
           const absoluteBottom = bottom + window.pageYOffset;
 
-          if (scrollPosition >= absoluteTop && scrollPosition < absoluteBottom) {
+          if (
+            scrollPosition >= absoluteTop &&
+            scrollPosition < absoluteBottom
+          ) {
             setActiveCategory(cat.id);
             break;
           }
@@ -58,16 +62,16 @@ const MenuPage = () => {
   return (
     <div className="bg-primary min-h-screen font-body text-text-dark">
       <Navbar />
-      
+
       {/* Mobile Category Nav (Sticky Top) */}
-      <div className="md:hidden sticky top-[72px] z-40 bg-primary/95 backdrop-blur-sm border-b border-text-dark/5 overflow-x-auto hide-scrollbar px-4 py-3 flex gap-4">
+      <div className="md:hidden sticky top-18 z-40 bg-primary/95 backdrop-blur-sm border-b border-text-dark/5 overflow-x-auto hide-scrollbar px-4 py-3 flex gap-4">
         {categories.map((cat) => (
           <button
             key={cat.id}
             onClick={() => scrollToSection(cat.id)}
             className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all ${
-              activeCategory === cat.id 
-                ? "bg-text-dark text-white" 
+              activeCategory === cat.id
+                ? "bg-text-dark text-white"
                 : "bg-white/50 text-text-dark/60 hover:bg-white"
             }`}
           >
@@ -78,21 +82,25 @@ const MenuPage = () => {
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 pt-24 pb-20">
         <div className="flex flex-col md:flex-row gap-12">
-          
           {/* Desktop Sidebar */}
           <aside className="hidden md:block w-64 shrink-0">
             <div className="sticky top-32 flex flex-col gap-2">
-              <Link to="/" className="flex items-center gap-2 text-text-dark/60 hover:text-text-dark mb-8 transition-colors">
+              <Link
+                to="/"
+                className="flex items-center gap-2 text-text-dark/60 hover:text-text-dark mb-8 transition-colors"
+              >
                 <ArrowLeft size={20} />
                 <span className="font-medium">Kembali ke Beranda</span>
               </Link>
-              <h2 className="text-2xl font-heading font-bold mb-6 tracking-tight">Kategori</h2>
+              <h2 className="text-2xl font-heading font-bold mb-6 tracking-tight">
+                Kategori
+              </h2>
               <nav className="flex flex-col gap-1">
                 {categories.map((cat) => (
                   <button
                     key={cat.id}
                     onClick={() => scrollToSection(cat.id)}
-                    className={`text-left px-4 py-3 rounded-[8px] transition-all duration-300 font-medium ${
+                    className={`text-left px-4 py-3 rounded-lg transition-all duration-300 font-medium ${
                       activeCategory === cat.id
                         ? "bg-text-dark text-white shadow-lg shadow-black/5 translate-x-1"
                         : "text-text-dark/50 hover:text-text-dark hover:bg-white"
@@ -109,11 +117,7 @@ const MenuPage = () => {
           <main className="flex-1">
             <div className="flex flex-col gap-16 md:gap-24">
               {categories.map((cat) => (
-                <section 
-                  key={cat.id} 
-                  id={cat.id}
-                  className="scroll-mt-32"
-                >
+                <section key={cat.id} id={cat.id} className="scroll-mt-32">
                   <h2 className="text-3xl md:text-4xl font-heading font-bold mb-8 md:mb-12 tracking-tight flex items-center gap-4">
                     {cat.name.toUpperCase()}
                     <div className="h-px flex-1 bg-text-dark/10"></div>
@@ -123,18 +127,15 @@ const MenuPage = () => {
                     {menuItems
                       .filter((item) => item.categoryId === cat.id)
                       .map((item, idx) => (
-                        <motion.div
+                        <div
                           key={item.id}
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: idx * 0.05 }}
-                          className="flex gap-4 md:gap-6 bg-white p-4 md:p-5 rounded-[8px] hover:shadow-xl hover:shadow-black/5 transition-all duration-500 group border border-transparent hover:border-text-dark/5"
+                          className="flex gap-4 md:gap-6 bg-white p-4 md:p-5 rounded-lg hover:shadow-xl hover:shadow-black/5 transition-all duration-500 group border border-transparent hover:border-text-dark/5 animate-fadeInUp"
+                          style={{ animationDelay: `${idx * 0.05}s` }}
                         >
-                          <div className="w-24 h-24 md:w-32 md:h-32 rounded-[8px] overflow-hidden bg-[#f0f0e8] shrink-0">
-                            <img 
-                              src={item.image} 
-                              alt={item.name} 
+                          <div className="w-24 h-24 md:w-32 md:h-32 rounded-lg overflow-hidden bg-[#f0f0e8] shrink-0">
+                            <img
+                              src={item.image}
+                              alt={item.name}
                               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
                           </div>
@@ -154,7 +155,7 @@ const MenuPage = () => {
                               </button>
                             </div>
                           </div>
-                        </motion.div>
+                        </div>
                       ))}
                   </div>
                 </section>
@@ -163,7 +164,7 @@ const MenuPage = () => {
           </main>
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );

@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import Navbar from "../components/Navbar";
@@ -65,31 +64,21 @@ const BookingPage = () => {
       <main className="max-w-7xl mx-auto px-4 pt-32 pb-20">
         {/* Header */}
         <div className="text-center mb-16">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-heading font-bold mb-4 tracking-tighter"
-          >
+          <h1 className="text-5xl md:text-6xl font-heading font-bold mb-4 tracking-tighter animate-fadeInUp">
             Booking
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-text-dark/60 max-w-lg mx-auto md:text-lg"
+          </h1>
+          <p
+            className="text-text-dark/60 max-w-lg mx-auto md:text-lg animate-fadeInUp"
+            style={{ animationDelay: "0.1s" }}
           >
             Pesan tempat pilihanmu sekarang dan nikmati suasana tenang di
             OutCoffee.
-          </motion.p>
+          </p>
         </div>
 
         <div className="flex flex-col-reverse lg:flex-row gap-12 items-start">
           {/* Left Side: Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="w-full lg:w-5/12 bg-text-dark text-primary p-8 md:p-12 rounded-[8px] shadow-2xl shadow-black/10"
-          >
+          <div className="w-full lg:w-5/12 bg-text-dark text-primary p-8 md:p-12 rounded-lg shadow-2xl shadow-black/10 animate-fadeInUp">
             <h2 className="text-3xl font-heading font-bold mb-8">
               Informasi Reservasi
             </h2>
@@ -100,7 +89,7 @@ const BookingPage = () => {
 
             <div className="space-y-8">
               <div className="flex items-start gap-4">
-                <div className="bg-white/10 p-3 rounded-[8px] border border-white/5">
+                <div className="bg-white/10 p-3 rounded-lg border border-white/5">
                   <Phone size={24} className="text-white" />
                 </div>
                 <div>
@@ -110,7 +99,7 @@ const BookingPage = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-white/10 p-3 rounded-[8px] border border-white/5">
+                <div className="bg-white/10 p-3 rounded-lg border border-white/5">
                   <Mail size={24} className="text-white" />
                 </div>
                 <div>
@@ -120,7 +109,7 @@ const BookingPage = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-white/10 p-3 rounded-[8px] border border-white/5">
+                <div className="bg-white/10 p-3 rounded-lg border border-white/5">
                   <MapPin size={24} className="text-white" />
                 </div>
                 <div>
@@ -132,7 +121,7 @@ const BookingPage = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-white/10 p-3 rounded-[8px] border border-white/5">
+                <div className="bg-white/10 p-3 rounded-lg border border-white/5">
                   <Clock size={24} className="text-white" />
                 </div>
                 <div>
@@ -143,14 +132,10 @@ const BookingPage = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Side: Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="w-full lg:w-7/12 bg-white p-8 md:p-12 rounded-[8px] shadow-xl shadow-black/5"
-          >
+          <div className="w-full lg:w-7/12 bg-white p-8 md:p-12 rounded-lg shadow-xl shadow-black/5 animate-fadeInUp">
             {!isSubmitted ? (
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -169,7 +154,7 @@ const BookingPage = () => {
                       placeholder="Masukkan nama Anda"
                       value={formData.user_name}
                       onChange={handleChange}
-                      className="w-full px-5 py-4 rounded-[8px] bg-primary/50 border border-transparent focus:border-text-dark/10 focus:bg-white outline-none transition-all font-medium"
+                      className="w-full px-5 py-4 rounded-lg bg-primary/50 border border-transparent focus:border-text-dark/10 focus:bg-white outline-none transition-all font-medium"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -187,7 +172,7 @@ const BookingPage = () => {
                       placeholder="Contoh: 08123456789"
                       value={formData.user_phone}
                       onChange={handleChange}
-                      className="w-full px-5 py-4 rounded-[8px] bg-primary/50 border border-transparent focus:border-text-dark/10 focus:bg-white outline-none transition-all font-medium"
+                      className="w-full px-5 py-4 rounded-lg bg-primary/50 border border-transparent focus:border-text-dark/10 focus:bg-white outline-none transition-all font-medium"
                     />
                   </div>
                 </div>
@@ -207,7 +192,7 @@ const BookingPage = () => {
                       required
                       value={formData.booking_time}
                       onChange={handleChange}
-                      className="w-full px-5 py-4 rounded-[8px] bg-primary/50 border border-transparent focus:border-text-dark/10 focus:bg-white outline-none transition-all font-medium"
+                      className="w-full px-5 py-4 rounded-lg bg-primary/50 border border-transparent focus:border-text-dark/10 focus:bg-white outline-none transition-all font-medium"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -271,11 +256,7 @@ const BookingPage = () => {
                 )}
               </form>
             ) : (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="flex flex-col items-center justify-center py-12 text-center"
-              >
+              <div className="flex flex-col items-center justify-center py-12 text-center animate-fadeInScale">
                 <div className="bg-green-100 p-4 rounded-full mb-6">
                   <CheckCircle2 size={48} className="text-green-600" />
                 </div>
@@ -292,9 +273,9 @@ const BookingPage = () => {
                 >
                   Buat Booking Baru
                 </button>
-              </motion.div>
+              </div>
             )}
-          </motion.div>
+          </div>
         </div>
       </main>
 

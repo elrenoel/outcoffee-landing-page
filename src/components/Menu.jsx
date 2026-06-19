@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { menuItems } from "../data/menuData";
@@ -77,34 +76,27 @@ const Menu = () => {
           <h2 className="text-[2.5rem] md:text-5xl font-bold font-heading tracking-tighter text-text-dark leading-none">
             Menu Pilihan
           </h2>
-          <Link 
+          <Link
             to="/menu"
-            className="hidden md:block px-6 py-3 rounded-[8px] bg-text-dark text-white text-sm font-medium hover:bg-text-dark/90 transition-colors shrink-0 text-center"
+            className="hidden md:block px-6 py-3 rounded-lg bg-text-dark text-white text-sm font-medium hover:bg-text-dark/90 transition-colors shrink-0 text-center"
           >
             Lihat Semua Menu
           </Link>
         </div>
 
         {/* Menu Grid / Carousel */}
-        <motion.div
+        <div
           ref={carouselRef}
           onScroll={handleScroll}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-8 hide-scrollbar pb-6"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-8 hide-scrollbar pb-6 animate-fadeIn"
         >
           {menuData.map((item, index) => (
-            <motion.div
+            <div
               key={item.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="w-full md:w-[calc(33.333%-1.33rem)] md:min-w-[calc(33.333%-1.33rem)] shrink-0 snap-center md:snap-start flex flex-col group cursor-pointer"
+              className="w-full md:w-[calc(33.333%-1.33rem)] md:min-w-[calc(33.333%-1.33rem)] shrink-0 snap-center md:snap-start flex flex-col group cursor-pointer animate-fadeInScale"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-full aspect-[4/5] overflow-hidden rounded-[8px] mb-4 bg-[#e8e8df]">
+              <div className="w-full aspect-4/5 overflow-hidden rounded-lg mb-4 bg-[#e8e8df]">
                 <img
                   src={item.image}
                   alt={item.name}
@@ -115,12 +107,12 @@ const Menu = () => {
               <h3 className="text-xl font-heading font-medium text-text-dark text-center mt-2 tracking-tight">
                 {item.name}
               </h3>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Slider Navigation Dots */}
-        <div className="flex justify-center items- gap-3 mt-2 md:mt-4 w-[300px] mx-auto">
+        <div className="flex justify-center items- gap-3 mt-2 md:mt-4 w-75 mx-auto">
           {Array.from({ length: dotsCount }).map((_, index) => {
             const isActive = activeIndex === index;
             return (
@@ -140,9 +132,9 @@ const Menu = () => {
 
         {/* Mobile View All Button */}
         <div className="mt-10 md:hidden flex justify-center">
-          <Link 
+          <Link
             to="/menu"
-            className="px-8 py-3.5 rounded-[8px] bg-text-dark text-white text-md font-medium hover:bg-black/90 transition-colors w-full text-center"
+            className="px-8 py-3.5 rounded-lg bg-text-dark text-white text-md font-medium hover:bg-black/90 transition-colors w-full text-center"
           >
             Lihat Semua Menu
           </Link>
